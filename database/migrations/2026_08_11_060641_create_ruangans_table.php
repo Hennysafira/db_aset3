@@ -13,8 +13,9 @@ class CreateRuangansTable extends Migration
      */
     public function up()
     {
-        Schema::create('ruangans', function (Blueprint $table) {
+         Schema::create('ruangans', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_ruangan');
             $table->timestamps();
         });
     }

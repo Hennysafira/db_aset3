@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\RuanganController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+// Route untuk Ruangan (versi lokal Anda)
 Route::get('/ruangan', [RuanganController::class, 'index'])->name('ruangan.index');
 Route::get('/ruangan/create', [RuanganController::class, 'create'])->name('ruangan.create');
 Route::post('/ruangan', [RuanganController::class, 'store'])->name('ruangan.store');
 Route::get('/ruangan/{id}/edit', [RuanganController::class, 'edit'])->name('ruangan.edit');
 Route::put('/ruangan/{id}', [RuanganController::class, 'update'])->name('ruangan.update');
 Route::delete('/ruangan/{id}', [RuanganController::class, 'destroy'])->name('ruangan.destroy');
+
+// Route untuk Kategori (versi remote)
+Route::resource('kategori', KategoriController::class);

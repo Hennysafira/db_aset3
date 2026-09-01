@@ -34,3 +34,11 @@ Route::post('/kategori', [KategoriController::class, 'store']) ->name('kategori.
 Route::get('/kategori/{id}/edit', [KategoriController::class, 'edit']) ->name('kategori.edit');
 Route::put('/kategori/{id}', [KategoriController::class, 'update']) ->name('kategori.update');
 Route::delete('/kategori/{id}', [KategoriController::class, 'destroy']) ->name('kategori.destroy');
+
+// Route untuk aset
+Route::get('/aset', [AsetController::class, 'index']) ->name('aset.index');
+Route::get('/aset/create', [AsetController::class, 'create']) ->name('aset.create');
+Route::post('/aset', [AsetController::class, 'store']) ->name('aset.store');
+Route::get('/aset/{id}/edit', [AsetController::class, 'edit']) ->name('aset.edit');
+Route::put('/aset/{id}', [AsetController::class, 'update']) ->name('aset.update');
+Route::delete('/aset/{id}', [AsetController::class, 'destroy']) ->name('aset.destroy');

@@ -47,13 +47,6 @@ class AsetController extends Controller
             ->with('success', 'Data aset berhasil ditambahkan!');
     }
 
-    // Menampilkan detail aset
-    public function show($id)
-    {
-        $aset = Aset::findOrFail($id);
-
-        return view('aset.show', compact('aset'));
-    }
 
     // Menampilkan form edit aset
     public function edit($id)

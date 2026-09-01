@@ -1,38 +1,76 @@
-<!DOCTYPE html>
 
-<html>
-<head>
-    <title>Edit Ruangan</title>
-</head>
-<body>
+@extends('layouts.app')
 
-<h2>Edit Ruangan</h2>
+@section('content')
 
-<form action="{{ route('ruangan.update', $ruangan->id) }}"
-      method="POST">
+<div class="row justify-content-center">
 
-@csrf
-@method('PUT')
+    <div class="col-md-7">
 
-<label>Nama Ruangan</label>
-<br>
+        <div class="card shadow-sm border-0">
 
-<input type="text"
-       name="nama_ruangan"
-       value="{{ $ruangan->nama_ruangan }}"
-       required>
+            <div class="card-header bg-warning">
+                <h5 class="mb-0">
+                    <i class="fas fa-edit"></i>
+                    Edit Ruangan
+                </h5>
+            </div>
 
-<br><br>
+            <div class="card-body">
 
-<button type="submit">
-    Update
-</button>
+                <form action="{{ route('ruangan.update', $ruangan->id) }}"
+                      method="POST">
 
-<a href="{{ route('ruangan.index') }}">
-    Kembali
-</a>
+                    @csrf
+                    @method('PUT')
 
-</form>
+                    <div class="mb-3">
 
-</body>
-</html>
+                        <label for="nama_ruangan"
+                               class="form-label">
+                            Nama Ruangan
+                        </label>
+
+                        <input type="text"
+                               id="nama_ruangan"
+                               name="nama_ruangan"
+                               class="form-control @error('nama_ruangan') is-invalid @enderror"
+                               value="{{ old('nama_ruangan', $ruangan->nama_ruangan) }}"
+                               required>
+
+                        @error('nama_ruangan')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+
+                    </div>
+
+                    <div class="d-flex justify-content-end gap-2">
+
+                        <a href="{{ route('ruangan.index') }}"
+                           class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i>
+                            Kembali
+                        </a>
+
+                        <button type="submit"
+                                class="btn btn-warning">
+                            <i class="fas fa-save"></i>
+                            Update
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+@endsection
+

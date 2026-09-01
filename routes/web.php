@@ -2,6 +2,7 @@
 use App\Http\Controllers\RuanganController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\AsetController;
 
 /*
 |--------------------------------------------------------------------------

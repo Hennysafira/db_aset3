@@ -87,16 +87,13 @@
 
                             <td>
 
-                                <a href="{{ route('aset.show', $aset->id) }}"
-                                   class="btn btn-info btn-sm">
-                                    Detail
-                                </a>
-
+                                {{-- Tombol Edit --}}
                                 <a href="{{ route('aset.edit', $aset->id) }}"
                                    class="btn btn-warning btn-sm">
                                     Edit
                                 </a>
 
+                                {{-- Tombol Hapus --}}
                                 <form action="{{ route('aset.destroy', $aset->id) }}"
                                       method="POST"
                                       class="d-inline">
@@ -130,11 +127,18 @@
                         </tr>
 
                     @endforelse
+
                     </tbody>
+
                 </table>
+
             </div>
+
         </div>
+
     </div>
+
 </div>
 
 @endsection
+

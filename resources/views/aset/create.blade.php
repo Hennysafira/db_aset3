@@ -3,26 +3,47 @@
 @section('content')
 
 <div class="container mt-4">
+
     <div class="row justify-content-center">
+
         <div class="col-md-8">
+
             <div class="card shadow">
+
                 <div class="card-header bg-primary text-white">
                     <h4 class="mb-0">Tambah Data Aset</h4>
                 </div>
+
                 <div class="card-body">
+
+                    {{-- Pesan Error --}}
                     @if($errors->any())
+
                         <div class="alert alert-danger">
-                            <ul class="mb-0">
+
+                            <strong>Terjadi kesalahan!</strong>
+
+                            <ul class="mb-0 mt-2">
+
                                 @foreach($errors->all() as $error)
                                     <li>{{ $error }}</li>
                                 @endforeach
+
                             </ul>
+
                         </div>
+
                     @endif
+
+                    {{-- Form Tambah --}}
                     <form action="{{ route('aset.store') }}"
                           method="POST">
+
                         @csrf
+
+                        {{-- Nama Aset --}}
                         <div class="mb-3">
+
                             <label class="form-label">
                                 Nama Aset
                             </label>
@@ -36,6 +57,7 @@
 
                         </div>
 
+                        {{-- Kategori --}}
                         <div class="mb-3">
 
                             <label class="form-label">
@@ -50,23 +72,28 @@
                                     -- Pilih Kategori --
                                 </option>
 
-                                <option value="Elektronik">
+                                <option value="Elektronik"
+                                    {{ old('kategori') == 'Elektronik' ? 'selected' : '' }}>
                                     Elektronik
                                 </option>
 
-                                <option value="Furniture">
+                                <option value="Furniture"
+                                    {{ old('kategori') == 'Furniture' ? 'selected' : '' }}>
                                     Furniture
                                 </option>
 
-                                <option value="Kendaraan">
+                                <option value="Kendaraan"
+                                    {{ old('kategori') == 'Kendaraan' ? 'selected' : '' }}>
                                     Kendaraan
                                 </option>
 
-                                <option value="Peralatan">
+                                <option value="Peralatan"
+                                    {{ old('kategori') == 'Peralatan' ? 'selected' : '' }}>
                                     Peralatan
                                 </option>
 
-                                <option value="Lainnya">
+                                <option value="Lainnya"
+                                    {{ old('kategori') == 'Lainnya' ? 'selected' : '' }}>
                                     Lainnya
                                 </option>
 
@@ -74,6 +101,7 @@
 
                         </div>
 
+                        {{-- Jumlah --}}
                         <div class="mb-3">
 
                             <label class="form-label">
@@ -85,10 +113,12 @@
                                    class="form-control"
                                    min="1"
                                    value="{{ old('jumlah') }}"
+                                   placeholder="Masukkan jumlah aset"
                                    required>
 
                         </div>
 
+                        {{-- Kondisi --}}
                         <div class="mb-3">
 
                             <label class="form-label">
@@ -103,15 +133,18 @@
                                     -- Pilih Kondisi --
                                 </option>
 
-                                <option value="Baik">
+                                <option value="Baik"
+                                    {{ old('kondisi') == 'Baik' ? 'selected' : '' }}>
                                     Baik
                                 </option>
 
-                                <option value="Rusak Ringan">
+                                <option value="Rusak Ringan"
+                                    {{ old('kondisi') == 'Rusak Ringan' ? 'selected' : '' }}>
                                     Rusak Ringan
                                 </option>
 
-                                <option value="Rusak Berat">
+                                <option value="Rusak Berat"
+                                    {{ old('kondisi') == 'Rusak Berat' ? 'selected' : '' }}>
                                     Rusak Berat
                                 </option>
 
@@ -119,6 +152,7 @@
 
                         </div>
 
+                        {{-- Lokasi --}}
                         <div class="mb-3">
 
                             <label class="form-label">
@@ -134,6 +168,7 @@
 
                         </div>
 
+                        {{-- Tanggal Perolehan --}}
                         <div class="mb-3">
 
                             <label class="form-label">
@@ -148,6 +183,7 @@
 
                         </div>
 
+                        {{-- Tombol --}}
                         <div class="d-flex justify-content-between">
 
                             <a href="{{ route('aset.index') }}"
@@ -175,3 +211,4 @@
 </div>
 
 @endsection
+
